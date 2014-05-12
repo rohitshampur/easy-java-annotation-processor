@@ -8,7 +8,7 @@ import javax.tools.Diagnostic;
 
 import com.proserus.ejap.processors.utils.ProcessorUtils;
 
-public class EnforceElementHasNoArgsConstructorProcessor implements EjapConditionalProcessorIF {
+public class EnforceElementHasNoArgConstructorProcessor implements EjapConditionalProcessorIF {
 
 	public void validate(Element userAnnotation, Element userTypeMethodField, ProcessingEnvironment processingEnv) {
 		boolean noArgFound = false;

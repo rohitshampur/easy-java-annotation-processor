@@ -3,7 +3,7 @@ package com.proserus.ejap;
 import java.lang.annotation.Annotation;
 
 import com.proserus.ejap.annotations.EnforceElementForbiddenModifiers;
-import com.proserus.ejap.annotations.EnforceElementHasNoArgsConstructor;
+import com.proserus.ejap.annotations.EnforceElementHasNoArgConstructor;
 import com.proserus.ejap.annotations.EnforceElementModifiers;
 import com.proserus.ejap.annotations.EnforceMethodArgumentTypes;
 import com.proserus.ejap.annotations.EnforceMethodConstructor;
@@ -13,7 +13,7 @@ import com.proserus.ejap.annotations.EnforceMethodReturnTypes;
 import com.proserus.ejap.annotations.EnforceMethodSetter;
 import com.proserus.ejap.processors.EjapConditionalProcessorIF;
 import com.proserus.ejap.processors.EnforceElementForbiddenModifiersProcessor;
-import com.proserus.ejap.processors.EnforceElementHasNoArgsConstructorProcessor;
+import com.proserus.ejap.processors.EnforceElementHasNoArgConstructorProcessor;
 import com.proserus.ejap.processors.EnforceElementModifiersProcessor;
 import com.proserus.ejap.processors.EnforceMethodArgumentTypeProcessor;
 import com.proserus.ejap.processors.EnforceMethodConstructorProcessor;
@@ -31,7 +31,7 @@ public enum EjapConditionalProcessorsEnum {
 	CONSTRUCTOR(EnforceMethodConstructor.class, new EnforceMethodConstructorProcessor()),
 	RETURN_TYPE(EnforceMethodReturnTypes.class, new EnforceMethodReturnTypesProcessor()),
 	PARAM_TYPES(EnforceMethodArgumentTypes.class, new EnforceMethodArgumentTypeProcessor()),
-	NO_ARGS_CONSTRUCTOR(EnforceElementHasNoArgsConstructor.class, new EnforceElementHasNoArgsConstructorProcessor());	
+	NO_ARG_CONSTRUCTOR(EnforceElementHasNoArgConstructor.class, new EnforceElementHasNoArgConstructorProcessor());	
 
 	private EjapConditionalProcessorIF annotationProcessor;
 	private Class<? extends Annotation> annotationClass;

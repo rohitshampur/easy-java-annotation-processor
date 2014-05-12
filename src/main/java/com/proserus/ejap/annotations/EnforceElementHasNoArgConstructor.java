@@ -8,5 +8,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Target(ElementType.ANNOTATION_TYPE)
-public @interface EnforceElementHasNoArgsConstructor {
+public @interface EnforceElementHasNoArgConstructor {
 }
