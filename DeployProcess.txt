@@ -1,0 +1,44 @@
+1. Setup Gp4win
+
+2. mvn clean install (with sources/javadoc plugins in the pom)
+
+3. GP4Win-Kleopatra =>  
+	- File->Sign/Encrypt files...
+	- select pom.xml and jars to target with same formatting as generated jar (xxxxx.0.3.pom)
+	- CHoose "sign" + "Text output (Ascii)" + NEXT + unselect "sign with S/MIME"
+
+4. jar -cvf bundle.jar *.jar *.asc *.pom
+
+
+5. Upload bundle: https://oss.sonatype.org/#staging-upload
+
+
+
+
+https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide
+http://central.sonatype.org/pages/releasing-the-deployment.html
+
+
+Deploy snapshot artifacts into repository https://oss.sonatype.org/content/repositories/snapshots
+Deploy release artifacts into the staging repository https://oss.sonatype.org/service/local/staging/deploy/maven2
+Promote staged artifacts into repository 'Releases'
+Download snapshot and release artifacts from group https://oss.sonatype.org/content/groups/public
+Download snapshot, release and staged artifacts from staging group https://oss.sonatype.org/content/groups/staging
+
+
+mvn gpg:sign-and-deploy-file -Durl=https://oss.sonatype.org/content/repositories/snapshots/ -DrepositoryId=sonatype-nexus-staging -DpomFile=easy-java-annotation-processor-0.3.pom -Dfile=easy-java-annotation-processor-0.3.jar
+
+mvn gpg:sign-and-deploy-file -Durl=https://oss.sonatype.org/content/repositories/snapshots/ -DrepositoryId=sonatype-nexus-staging -DpomFile=easy-java-annotation-processor-0.3.pom -Dfile=easy-java-annotation-processor-0.3-sources.jar -Dclassifier=sources
+
+mvn gpg:sign-and-deploy-file -Durl=https://oss.sonatype.org/content/repositories/snapshots/ -DrepositoryId=sonatype-nexus-staging -DpomFile=easy-java-annotation-processor-0.3.pom -Dfile=easy-java-annotation-processor-0.3-javadoc.jar -Dclassifier=javadoc
+
+
+
+
+mvn gpg:sign-and-deploy-file -Durl= -DrepositoryId=sonatype-nexus-staging -DpomFile=ossrh-test-1.2.pom -Dfile=ossrh-test-1.2-sources.jar -Dclassifier=sources
+
+build snaptshot: 
+mvn clean deploy
+
+
+
